@@ -26,11 +26,11 @@ function! LineNumber()
 endfunction
 
 "Run on terminal without compiler message 
-autocmd FileType c nnoremap <leader>r :w<cr> :sp <cr> <C-w>l :!gcc % -o %<<cr>:vert term ./%<<cr>a
+autocmd FileType c nnoremap <leader>r :w<cr> :vsp <cr> <C-w>l :!gcc % -o %<<cr>:vert term ./%<<cr>a
 "Run in horizontal split terminal with compiler message in quickfix
-autocmd FileType c nnoremap <leader>e :w<cr> :sp <cr> <C-w>l :!gcc % -o %<<cr>:vert term ./%<<cr>
+autocmd FileType c nnoremap <leader>e :w<cr> :vsp <cr> <C-w>l :!gcc % -o %<<cr>:vert term ./%<<cr>
 "Compile in the vertical split terminal
-autocmd FileType c nnoremap <leader>2 :w<cr> :sp <cr> <C-w>l :vert term gcc % -o %<<cr>a
+autocmd FileType c nnoremap <leader>2 :w<cr> :vsp <cr> <C-w>l :vert term gcc % -o %<<cr>a
 "Just Compile in quickfix
 autocmd FileType c nnoremap <leader>3 :w<cr> :!gcc % -o %<<cr>
 "Compile and run in quickfix.
