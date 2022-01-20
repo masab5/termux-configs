@@ -1,0 +1,8 @@
+#!/usr/bin/bash
+
+tmux select-pane -t 1
+tmux send 'gcc "$(<~/.filename.txt)" -o a' ENTER;
+tmux select-pane -t 0
+tmux send ENTER;
+tmux select-pane -t 1
+tmux send ./a ENTER;
