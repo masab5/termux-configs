@@ -1,0 +1,7 @@
+#!/usr/bin/bash
+
+sudo ifconfig wlan0 | grep netmask | awk '{print $2}'> ~/ssh_info.txt
+nmap localhost | awk 'NR==6{print $1,$2,$3}' | cut -b 1,2,3,4 >> ~/ssh_info.txt
+whoami >> ~/ssh_info.txt
+echo "ssh ""$(cat ssh_info.txt | awk 'NR==3{print $1}')""@""$(cat ssh_info.txt | awk 'NR==1{print $1}')"" -p""$(cat ssh_info.txt | awk 'NR==2{print $1}')"
+rm ~/ssh_info.txt
