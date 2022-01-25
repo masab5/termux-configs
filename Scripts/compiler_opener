@@ -1,4 +1,4 @@
 #!/usr/bin/bash
 
 tmux split-window
-tmux resize-p -D 11
+tmux resize-p -D 8

@@ -1,7 +1,7 @@
 #!/usr/bin/bash
 
 tmux select-pane -t 1
-tmux send 'python3 "$(<~/Desktop/.filename.txt)"' ENTER;
+tmux send 'python3 "$(<~/.filename.txt)"' ENTER;
 tmux select-pane -t 0
 tmux send ENTER;
 tmux select-pane -t 1
