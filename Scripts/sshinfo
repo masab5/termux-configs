@@ -1,3 +1,0 @@
-#!/usr/bin/bash
-
-echo "ssh ""$(whoami)""@""$(sudo ifconfig wlan0 | grep netmask | awk '{print $2}')"" -p""$(nmap localhost | grep oa-system | cut -b 1,2,3,4)"
