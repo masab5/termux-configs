@@ -1,0 +1,16 @@
+#!/data/data/com.termux/files/usr/bin/bash
+
+number_of_lines=$(wc -l</data/data/com.termux/files/home/Scripts/dependencies/dialysis_counts.csv)
+number_of_lines=$((number_of_lines+1))
+last_line=$(tail -n 1 /data/data/com.termux/files/home/Scripts/dependencies/dialysis_counts.csv)
+
+IFS=','
+read -a strarr <<< "$last_line"
+termux-notification -t "Dialysis Information" -c "Last Dialysis:
+-------------------------------------------
+           Date       |      ${strarr[0]} 
+-------------------------------------------
+   Weekday      |      ${strarr[1]} 
+-------------------------------------------
+Number of dialysis done: ${strarr[2]}
+Add a new dialysis?" --id 12 --button1 "Yes" --button1-action "echo $(date +%Y-%m-%d),$(date +"%a"),$number_of_lines >> /data/data/com.termux/files/home/Scripts/dependencies/dialysis_counts.csv && termux-notification-remove 12" --button2 "No" --button2-action "termux-notification-remove 12"

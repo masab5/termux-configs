@@ -1,0 +1,5 @@
+#!/usr/bin/bash
+termux-sms-list > dependencies/sms_list.json
+sed -i '1d;$d' dependencies/sms_list.json
+python3 bkash_account.py
+cat dependencies/bkash_received_data.csv | awk -F "," '{print $1"    "$2"    "$3}'
